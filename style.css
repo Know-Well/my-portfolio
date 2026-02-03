@@ -37,9 +37,11 @@ button {
 .project-grid {
     display: grid;
     /* This creates 3 equal columns that adjust for mobile automatically */
-    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    margin-top: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .card {
