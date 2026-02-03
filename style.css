@@ -39,6 +39,7 @@ button {
     /* This creates 3 equal columns that adjust for mobile automatically */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    align-items: start;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -48,6 +49,8 @@ button {
     background: white;
     padding: 20px;
     border-radius: 12px;
+    flex-direction: column;
+    height: 100%;
     text-align: center;
     transition: transform 0.3s ease; /*makes it pop when you hover! */
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
