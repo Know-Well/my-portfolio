@@ -28,4 +28,45 @@ button {
     border: none;
     border-radius: 5px;
 }
+.gallery-container {
+    padding: 40px 20px;
+    max-width: 1000px;
+    width: 100%;
+}
 
+.project-grid {
+    display: grid;
+    /* This creates 3 equal columns that adjust for mobile automatically */
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease; /*makes it pop when you hover! */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    transform: translate(-10px); /*Lift effect */
+}
+
+.card-image {
+    font-size: 50px;
+    background: #f0f2f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.view-btn {
+    display: inline-block;
+    margin-top: 15px;
+    color: #1877f2;
+    text-decoration: none;
+    font-weight: bold;
+}
