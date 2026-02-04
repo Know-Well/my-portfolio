@@ -1,7 +1,15 @@
-const btn = document.getElementById('colorBtn');
+const toggleBtn = document.getElementById('theme-toggle');
 
-btn.addEventListener('click' ,() => {
-    // This change the background randomly
-    const randomColor = Math.floor(Math.random()*16777215).toString(16);
-    console.log("Color changed to: #" + randomColor);
-})
+toggleBtn.addEventListener('click', () => {
+    // Get the <html> element
+    const root = document.documentElement;
+    
+    // Check if it's already dark
+    if (root.getAttribute('data-theme') === 'dark') {
+        root.setAttribute('data-theme', 'light');
+        toggleBtn.innerText = "🌙 Dark Mode";
+    } else {
+        root.setAttribute('data-theme', 'dark');
+        toggleBtn.innerText = "☀️ Light Mode";
+    }
+});
