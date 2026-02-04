@@ -1,10 +1,26 @@
+:root {
+    --bg-color: #f5f7fa;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --text-color: #333;
+    --accent-color: #1877f2;
+}
+[data-theme="dark"] {
+    --bg-color: #18191a;
+    --card-bg: rgba(36, 37, 38, 0.9);
+    --accent-color: #2e89ff;
+}
+
 body {
-    font-family: sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f0f2f5;
+    color: var(--text-color);
+    /* Fixed: Added 'color' to the transition list */
+    transition: background 0.5s ease, color 0.5s ease; 
+    background: linear-gradient(135deg, var(--bg-color) 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+[data-theme="dark"] body {
+    background: linear-gradient(135deg, #18191a 0%, #242526 100%);
 }
 nav {
     background: #1877f2;
@@ -14,11 +30,14 @@ nav {
     padding: 10px 0;
 }
 .hero {
-    margin-top: 50px;
-    padding: 40px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 80px 20px;
+    text-align: center;
+}
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-color);
+    letter-spacing: -1px;
 }
 button {
     padding: 10px 20px;
@@ -38,26 +57,40 @@ button {
     display: grid;
     /* This creates 3 equal columns that adjust for mobile automatically */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    align-items: start;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
 .card {
-    background: white;
-    padding: 20px;
+    background: var(--card-bg);
     border-radius: 12px;
+    overflow: hidden;
+    display: flex;
     flex-direction: column;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.3s ease; /*makes it pop when you hover! */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    align-self: start;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  
 }
 
 .card:hover {
-    transform: translate(-10px); /*Lift effect */
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid #1877f2;
+}
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card-content h3, .card-content p{
+    margin: 10px 0;
 }
 
 .card-image {
@@ -70,16 +103,52 @@ button {
 
 .view-btn {
     display: inline-block;
-    margin-top: 15px;
-    color: #1877f2;
+    padding: 8px 24px; /* Slightly wider for a better look */
+    background-color: var(--accent-color);
+    color: white;
     text-decoration: none;
-    font-weight: bold;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    margin-top: 10px; /* Changed from 'auto' to '10px' to keep it close to text */
 }
 
 .project-img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    display: block;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+}
+.contact-section {
+    text-align: center;
+    padding: 80px 20px;
+    background: rgba(24, 119, 242, 0.05);
+    margin-top: 50px;
+}
+.email-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #1877f2;
+    color: white;
+    text-decoration: none;
+    font-weight:  bold;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+.email-btn:hover {
+    background-color: #166fe5;
+    transform: scale(1.05);
+}
+html {
+    scroll-behavior: smooth;
 }
